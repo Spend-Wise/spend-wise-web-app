@@ -2,7 +2,7 @@
 name: web ui story
 about: Template for creating structured user stories related to Web UI features, components,
   and interactions
-title: "[ web-app ]"
+title: "[ web-ui ]"
 labels: ''
 assignees: ''
 

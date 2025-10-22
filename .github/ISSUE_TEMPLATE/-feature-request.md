@@ -2,7 +2,7 @@
 name: "✨ Feature Request"
 about: Suggest a new feature or enhancement
 title: "[ web ui][Feature]: "
-labels: enhancement, Feature
+labels: feature
 assignees: ''
 
 ---

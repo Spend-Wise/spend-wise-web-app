@@ -5,21 +5,21 @@ This is a web ui for the spend-wise application
 
 ```
 spend-wise-web-app
-├── public
+├── public/
 │   └── index.html
 ├── README.md
-├── src
+├── src/
 │   ├── App.css
 │   ├── App.tsx
-│   ├── assets
-│   ├── routes
-│   ├── utils
-│   ├── components
+│   ├── assets/
+│   ├── routes/
+│   ├── utils/
+│   ├── components/
 │   ├── index.css
 │   └── main.tsx
 ├── test
-│   ├── utils
-│   └── components
+│   ├── utils/
+│   └── components/
 ├── tsconfig.json
 ├── vite.config.ts
 └── vite.svg

@@ -5,27 +5,33 @@ This is a web ui for the spend-wise application
 
 ```
 spend-wise-web-app
-├── public/
-│   └── index.html
-├── README.md
 ├── src/
-│   ├── App.css
-│   ├── App.tsx
-│   ├── assets/
-│   ├── routes/
-│   ├── utils/
-│   ├── components/
-│   ├── index.css
-│   └── main.tsx
-├── test
-│   ├── utils/
-│   └── components/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets/
+│   ├── routes/
+│   ├── utils/
+│   ├── components/
+│   ├── index.css
+│   └── main.tsx
+├── test/
+│   ├── components/
+│   └── utils/
+├── README.md
 ├── tsconfig.json
 ├── vite.config.ts
+├── package.json
+├── package-lock.json
 └── vite.svg
-
 ```
 
+Folder notes:
+- `src/`: Application source code.
+- `src/components/`: Reusable UI components.
+- `src/routes/`: Route-level components / pages.
+- `src/utils/`: Helper utilities and pure functions.
+- `src/assets/`: Images, fonts, static media imported into code.
+- `test/`: Test files mirroring `src` structure.
 
 ## Getting Started
 
@@ -38,17 +44,14 @@ npm install
 ```bash
 npm run dev
 ```
-visit: http://localhost:5173/
+Visit: http://localhost:5173/
 
 ### 3. Build for production
-
 ```bash 
 npm run build
 ```
 
 ### 4. Linting
-
 ```bash
 npm run lint
 ```
-

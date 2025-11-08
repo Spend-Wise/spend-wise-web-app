@@ -1,13 +1,16 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import HealthCheck from "./routes/healthCheck";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div>
-        <p>spend wise ui</p>
-      </div>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/health" element={<HealthCheck />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

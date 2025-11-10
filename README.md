@@ -35,23 +35,55 @@ Folder notes:
 
 ## Getting Started
 
-### 1. Install dependencies
+### Quick Start
+
+Use the `./run` script for common commands:
+
 ```bash
+# Install dependencies
+./run setup
+
+# Run the development server
+./run client
+# Visit: http://localhost:5173/
+
+# Run frontend unit tests
+./run test
+
+# Run ESLint with auto-fix
+./run lint
+
+# Build for production
+./run build
+
+# Show usage information
+./run usage
+```
+
+### Available Commands
+
+- `./run setup` - Install project dependencies
+- `./run client` - Run the Vite development server
+- `./run test` - Run frontend unit tests
+- `./run lint` - Run ESLint with auto-fix
+- `./run build` - Build the project for production
+- `./run usage` - Show usage information
+
+### Alternative: Using npm directly
+
+If you prefer using npm directly:
+
+```bash
+# Install dependencies
 npm install
-```
 
-### 2. Run the development server
-```bash
+# Run the development server
 npm run dev
-```
-Visit: http://localhost:5173/
+# Visit: http://localhost:5173/
 
-### 3. Build for production
-```bash 
+# Build for production
 npm run build
-```
 
-### 4. Linting
-```bash
+# Run ESLint
 npm run lint
 ```

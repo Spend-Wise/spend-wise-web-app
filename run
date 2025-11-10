@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Script to provide shortcuts for commonly used commands in spend-wise-web-app
+
+set -e
+
+# Function to display usage information
+show_usage() {
+    echo "Usage: ./run <command>"
+    echo ""
+    echo "Available commands:"
+    echo "  setup   - Install project dependencies (npm install)"
+    echo "  client  - Run the Vite development server (npm run dev)"
+    echo "  test    - Run frontend unit tests (npm test)"
+    echo "  lint    - Run ESLint with auto-fix (npm run lint -- --fix)"
+    echo "  build   - Build the project for production (npm run build)"
+    echo "  usage   - Show this usage information"
+    echo ""
+}
+
+# Check if command is provided
+if [ $# -eq 0 ]; then
+    echo "Error: No command provided"
+    echo ""
+    show_usage
+    exit 1
+fi
+
+COMMAND=$1
+
+case $COMMAND in
+    setup)
+        echo "Installing project dependencies..."
+        npm install
+        ;;
+    client)
+        echo "Starting Vite development server..."
+        npm run dev
+        ;;
+    test)
+        echo "Running frontend unit tests..."
+        if npm run | grep -q "test"; then
+            npm test
+        else
+            echo "Warning: No test script found in package.json"
+            echo "To add tests, add a 'test' script to your package.json"
+            exit 1
+        fi
+        ;;
+    lint)
+        echo "Running ESLint with auto-fix..."
+        npm run lint -- --fix
+        ;;
+    build)
+        echo "Building project for production..."
+        npm run build
+        ;;
+    usage)
+        show_usage
+        ;;
+    *)
+        echo "Error: Unknown command '${COMMAND}'"
+        echo ""
+        show_usage
+        exit 1
+        ;;
+esac
+

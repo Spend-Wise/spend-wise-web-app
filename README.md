@@ -69,6 +69,20 @@ Use the `./run` script for common commands:
 - `./run build` - Build the project for production
 - `./run usage` - Show usage information
 
+### Pre-commit Hooks
+
+This project includes a git pre-commit hook that automatically runs:
+- **ESLint** - Linting checks to ensure code quality
+- **Unit Tests** - Frontend unit tests to prevent broken code from being committed
+
+The hook will:
+- ✅ **Allow the commit** if both linting and tests pass
+- ❌ **Block the commit** if either linting or tests fail
+
+This ensures that no broken code gets committed to the repository.
+
+**Note:** The pre-commit hook is automatically installed when you run `./run setup`. The hook is stored in `git_hooks/pre-commit` and copied to `.git/hooks/pre-commit` during setup.
+
 ### Alternative: Using npm directly
 
 If you prefer using npm directly:
@@ -81,9 +95,12 @@ npm install
 npm run dev
 # Visit: http://localhost:5173/
 
-# Build for production
-npm run build
+# Run unit tests
+npm test
 
 # Run ESLint
 npm run lint
+
+# Build for production
+npm run build
 ```

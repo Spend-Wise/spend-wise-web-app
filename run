@@ -32,6 +32,19 @@ case $COMMAND in
     setup)
         echo "Installing project dependencies..."
         npm install
+        echo ""
+        echo "Installing git pre-commit hook..."
+        if [ -f "git_hooks/pre-commit" ]; then
+            if [ -d ".git/hooks" ]; then
+                cp git_hooks/pre-commit .git/hooks/pre-commit
+                chmod +x .git/hooks/pre-commit
+                echo "Pre-commit hook installed successfully!"
+            else
+                echo "Warning: .git/hooks directory not found. Skipping pre-commit hook installation."
+            fi
+        else
+            echo "Warning: git_hooks/pre-commit not found. Skipping pre-commit hook installation."
+        fi
         ;;
     client)
         echo "Starting Vite development server..."
@@ -39,7 +52,7 @@ case $COMMAND in
         ;;
     test)
         echo "Running frontend unit tests..."
-        if npm run | grep -q "test"; then
+        if npm run 2>/dev/null | grep -q "test"; then
             npm test
         else
             echo "Warning: No test script found in package.json"
@@ -49,7 +62,7 @@ case $COMMAND in
         ;;
     lint)
         echo "Running ESLint with auto-fix..."
-        npm run lint -- --fix
+        npx eslint . --fix
         ;;
     build)
         echo "Building project for production..."

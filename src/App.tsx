@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
-import HealthCheck from "./routes/healthCheck";
+import HealthCheck from "./routes/HealthCheck";
 
 const App = () => {
   return (

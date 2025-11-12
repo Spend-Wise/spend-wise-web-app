@@ -1,0 +1,52 @@
+# This is a GitHub Actions workflow file for running unit tests on push events.
+# Each line is explained for your learning.
+
+# The name of the workflow as it will appear in the GitHub Actions UI
+name: Unit Tests
+
+# This section defines the events that trigger the workflow
+on:
+  # The workflow will run on every push
+  push:
+    # Specify which branches to run on
+    branches:
+      # Run on pushes to the main branch
+      - main
+      # Run on pushes to any branch (the double asterisks is a glob pattern for all branches)
+      - '**'
+
+# A workflow consists of one or more jobs
+jobs:
+  # This is the name of the job
+  test:
+    # The job will run on the latest version of Ubuntu runner provided by GitHub
+    runs-on: ubuntu-latest
+
+    # Each job consists of a sequence of steps
+    steps:
+      # Step name shown in the Actions UI
+      # This action checks out your repository code so the workflow can access it
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step name
+      # This action sets up a Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          # Specify the Node.js version to use (you can adjust this based on your project requirements)
+          node-version: '20'
+          # Cache npm dependencies to speed up subsequent runs
+          cache: 'npm'
+
+      # Step name
+      # Install dependencies from package-lock.json (faster and more reliable than npm install for CI)
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      # Step name
+      # Run the test script defined in package.json (which runs 'vitest run')
+      - name: Run unit tests
+        run: |
+          npm test

@@ -72,7 +72,7 @@ Use the `./run` script for common commands:
 ### Pre-commit Hooks
 
 This project includes a git pre-commit hook that automatically runs:
-- **ESLint** - Linting checks to ensure code quality (checks `src/` directory only)
+- **ESLint** - Linting checks to ensure code quality (checks `src/` and `test/` directories)
 - **Unit Tests** - Frontend unit tests to prevent broken code from being committed
 
 The hook will:

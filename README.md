@@ -72,7 +72,7 @@ Use the `./run` script for common commands:
 ### Pre-commit Hooks
 
 This project includes a git pre-commit hook that automatically runs:
-- **ESLint** - Linting checks to ensure code quality
+- **ESLint** - Linting checks to ensure code quality (checks `src/` directory only)
 - **Unit Tests** - Frontend unit tests to prevent broken code from being committed
 
 The hook will:
@@ -98,8 +98,11 @@ npm run dev
 # Run unit tests
 npm test
 
-# Run ESLint
+# Run ESLint (check only)
 npm run lint
+
+# Run ESLint with auto-fix
+npm run lint:fix
 
 # Build for production
 npm run build

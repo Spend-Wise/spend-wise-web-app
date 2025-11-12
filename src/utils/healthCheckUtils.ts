@@ -10,7 +10,9 @@ export const fetchHealthData = async (): Promise<string> => {
 
 export const formatDuration = (time: string) => {
   const totalSeconds = parseInt(time, 10);
-  if (isNaN(totalSeconds)) return time; // handle error message case
+  if (isNaN(totalSeconds)) {
+    return time;
+  } // handle error message case
 
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
@@ -19,4 +21,3 @@ export const formatDuration = (time: string) => {
 
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 };
-

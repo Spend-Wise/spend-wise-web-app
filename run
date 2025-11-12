@@ -62,7 +62,7 @@ case $COMMAND in
         ;;
     lint)
         echo "Running ESLint with auto-fix..."
-        npx eslint . --fix
+        npm run lint:fix
         ;;
     build)
         echo "Building project for production..."
